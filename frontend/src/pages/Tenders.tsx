@@ -37,7 +37,7 @@ export default function Tenders() {
       (status === 'All' || t.status === status) && (department === 'All' || t.department === department);
   }), [tenders, search, status, department]);
 
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<TenderForm>({
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<z.input<typeof tenderSchema>, unknown, TenderForm>({
     resolver: zodResolver(tenderSchema),
     defaultValues: { title: '', department: 'Department of Information Technology', deadline: '2026-12-15', description: '', minTurnover: 1000000, requiredDocuments: 'PAN Card, GST Registration, Turnover Certificate' }
   });
