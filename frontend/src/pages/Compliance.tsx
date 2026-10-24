@@ -4,7 +4,7 @@ import { PageHeader, StatCard } from '../components/PageHeader';
 import { StatusBadge } from '../components/StatusBadge';
 import { Modal } from '../components/Modal';
 import { useApp } from '../context/AppContext';
-import { initialChecks } from '../data/mockData';
+import { getSeededComplianceChecks } from '../services/complianceService';
 import type { ComplianceCheck } from '../types';
 
 export default function Compliance() {
@@ -13,7 +13,7 @@ export default function Compliance() {
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
   const [selected, setSelected] = useState<ComplianceCheck | null>(null);
-  const checks = initialChecks;
+  const checks = useMemo(() => getSeededComplianceChecks(), []);
   const currentBid = bids.find(b => b.id === bidId) ?? bids[0];
   const viewChecks = useMemo(() => checks.filter(c => (filter === 'All' || c.status === filter) && (!search || c.criterion.toLowerCase().includes(search.toLowerCase()) || c.document.toLowerCase().includes(search.toLowerCase()))), [filter, search]);
   const fails = checks.filter(c => c.status === 'FAIL').length;
