@@ -4,7 +4,7 @@ import { PageHeader, StatCard } from '../components/PageHeader';
 import { StatusBadge } from '../components/StatusBadge';
 import { Modal } from '../components/Modal';
 import { useApp } from '../context/AppContext';
-import type { Bid, BidStatus } from '../types';
+import type { BidStatus } from '../types';
 
 export default function Review() {
   const { bids, updateBid, addAudit } = useApp();
