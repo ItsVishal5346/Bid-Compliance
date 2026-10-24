@@ -2,8 +2,11 @@ import { initialChecks } from '../data/mockData';
 import type { ComplianceCheck, ComplianceStatus } from '../types';
 
 // These fixed outcomes are explicitly seeded demo data; no OCR, AI model or live verification is run.
+export function getSeededComplianceChecks(): ComplianceCheck[] {
+  return initialChecks.map(check => ({ ...check }));
+}
 export async function getDemoComplianceChecks(): Promise<ComplianceCheck[]> {
-  return Promise.resolve(initialChecks.map(check => ({ ...check })));
+  return Promise.resolve(getSeededComplianceChecks());
 }
 export function countDemoStatuses(checks: ComplianceCheck[]): Record<ComplianceStatus, number> {
   return {
