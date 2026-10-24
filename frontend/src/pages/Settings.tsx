@@ -1,0 +1,14 @@
+import { Building2, MonitorCog, ShieldCheck, UserRound } from 'lucide-react';
+import { PageHeader } from '../components/PageHeader';
+import { useApp } from '../context/AppContext';
+
+export default function Settings() {
+  const { user } = useApp();
+  return <div className="page-stack"><PageHeader eyebrow="PREFERENCES" title="Settings" description="Profile and display information for the current demo session." />
+    <div className="settings-grid"><section className="panel settings-card"><span className="settings-icon"><UserRound size={19} /></span><h2>Profile information</h2><p className="muted">Details attached to the selected demo role.</p><div className="settings-field"><span>Full name</span><strong>{user?.name}</strong></div><div className="settings-field"><span>Email</span><strong>{user?.email}</strong></div><div className="settings-field"><span>Role</span><strong>{user?.role === 'officer' ? 'Procurement Officer' : 'Bidder / Vendor'}</strong></div><div className="settings-field"><span>User ID</span><strong>{user?.id}</strong></div><button className="button button-secondary button-full" disabled title="Profile editing is not implemented in the demo">Edit profile (demo unavailable)</button></section>
+      <section className="panel settings-card"><span className="settings-icon"><Building2 size={19} /></span><h2>Organization</h2><p className="muted">Organization context for the demo account.</p><div className="settings-field"><span>Organization name</span><strong>{user?.organization}</strong></div><div className="settings-field"><span>Environment</span><strong>Browser-only prototype</strong></div><div className="settings-field"><span>Connected services</span><strong>None</strong></div><button className="button button-secondary button-full" disabled>Manage organization</button></section>
+      <section className="panel settings-card"><span className="settings-icon"><MonitorCog size={19} /></span><h2>Display preferences</h2><p className="muted">This prototype uses a light interface with responsive layouts.</p><div className="settings-field"><span>Theme</span><strong>Light</strong></div><div className="settings-field"><span>Compact tables</span><strong>Standard density</strong></div><button className="button button-secondary button-full" disabled>Change preferences</button></section>
+      <section className="panel settings-card"><span className="settings-icon"><ShieldCheck size={19} /></span><h2>Prototype & privacy</h2><p className="muted">Understand what this demo does and does not do.</p><ul className="settings-list"><li>No real sign-in or authentication server.</li><li>Uploaded file bytes are not sent anywhere.</li><li>OCR and AI classification are not performed.</li><li>Refresh resets mock records to seeded data.</li></ul><span className="status-badge info">Academic Prototype</span></section>
+    </div>
+  </div>;
+}
