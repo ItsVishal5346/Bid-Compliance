@@ -74,3 +74,54 @@ export interface AuditEntry {
   reference: string;
   description: string;
 }
+
+export interface TenderRequirement {
+  id: string;
+  label: string;
+  kind: 'document' | 'eligibility' | 'financial' | 'technical';
+  mandatory: boolean;
+  description?: string;
+}
+export interface BidderProfile {
+  organizationName: string;
+  bidderReference: string;
+  registrationNumber: string;
+  contactEmail: string;
+  annualTurnover: number;
+}
+export interface ComplianceAssessment {
+  id: string;
+  bidId: string;
+  assessedAt: string;
+  overallScore: number | null;
+  mandatoryFailures: number;
+  pendingChecks: number;
+  checks: ComplianceCheck[];
+}
+export interface RiskIndicator {
+  id: string;
+  bidId: string;
+  category: string;
+  severity: 'Low' | 'Medium' | 'High';
+  explanation: string;
+  status: 'Open' | 'Resolved' | 'Needs Review';
+}
+export interface VerificationReport {
+  id: string;
+  bidId: string;
+  tenderTitle: string;
+  bidder: string;
+  assessmentDate: string;
+  complianceStatus: string;
+  complianceScore: number | null;
+  reportType: 'Summary' | 'Full';
+}
+export interface ReviewDecision {
+  id: string;
+  bidId: string;
+  decision: BidStatus;
+  remarks: string;
+  officer: string;
+  recordedAt: string;
+  isDemo: true;
+}
