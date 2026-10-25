@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { ArrowLeft, ArrowUpRight, CalendarDays, Check, FileText, Plus, Search } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, CalendarDays, Check, FileText, Plus, Search, ShieldCheck } from 'lucide-react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Modal } from '../components/Modal';
 import { PageHeader } from '../components/PageHeader';
