@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { AlertCircle, FileCheck2, FileText, Image as ImageIcon, Search, ShieldAlert, UploadCloud, X } from 'lucide-react';
+import { AlertCircle, FileCheck2, FileText, Image as ImageIcon, Search, ShieldAlert, UploadCloud } from 'lucide-react';
 import { PageHeader, StatCard } from '../components/PageHeader';
 import { StatusBadge } from '../components/StatusBadge';
 import { Modal } from '../components/Modal';
